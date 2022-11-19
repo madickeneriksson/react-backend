@@ -1,0 +1,40 @@
+.info .container {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+.info .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+}
+.info-box {
+    align-items: center;
+    text-align: center;
+   
+}
+
+    .info-box .menu-icon {
+        justify-content: center;
+        align-items: center;
+        margin-left: 160px;
+        margin-bottom: 20px;
+        display: flex;
+        background-color: var(--color-white);
+        color:var(--color-dark);
+        width: 36px;
+        height:36px;
+        border-radius: 50%;
+        box-shadow: 0 0 6px 4px var(--color-shadow);
+        transition: all 0.2s ease-in-out;
+
+    }
+   
+        .info .menu-icons .menu-icon:hover {
+            color: var(--color-white);
+            background-color: var(--color-dark);
+            box-shadow: 0 0 6px 4px var(--color-shadow);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        } 
+    }

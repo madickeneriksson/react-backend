@@ -1,0 +1,65 @@
+.__btn-theme {
+    position: relative;
+    text-align: center;
+    background-color: var(--color-theme);
+    color: var(--color-white);
+    padding: 25px 50px;
+    transition: all 0.2s ease-in-out;
+} 
+    .__btn-theme:hover {
+        color: var(--color-white);
+        background-color: var(--color-dark);
+        text-decoration: none;
+    }
+    .__btn-theme .__btn-theme-left,
+    .__btn-theme .__btn-theme-right {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+    }
+    .__btn-theme .__btn-theme-left {
+        top:10px;
+        left:10px;
+        border-left: 1px solid var(--color-white);
+        border-top: 1px solid var(--color-white);
+    }
+    .__btn-theme .__btn-theme-right {
+        bottom:10px;
+        right:10px;
+        border-right: 1px solid var(--color-white);
+        border-bottom: 1px solid var(--color-white);
+    }
+
+    .__btn-theme-white {
+        position: relative;
+        text-align: center;
+        background-color: var(--color-white);
+        color: var(--color-dark);
+        padding: 25px 50px;
+        transition: all 0.2s ease-in-out;
+        border:none;
+    } 
+        .__btn-theme-white:hover {
+            color: var(--color-white);
+            background-color: var(--color-dark);
+            text-decoration: none;
+        }
+
+    .__btn-theme-white .__btn-theme-left-white,
+    .__btn-theme-white .__btn-theme-right-white {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+    }
+    .__btn-theme-white .__btn-theme-left-white {
+        top:10px;
+        left:10px;
+        border-left: 1px solid var(--color-dark);
+        border-top: 1px solid var(--color-dark);
+    }
+    .__btn-theme-white .__btn-theme-right-white {
+        bottom:10px;
+        right:10px;
+        border-right: 1px solid var(--color-dark);
+        border-bottom: 1px solid var(--color-dark);
+    }

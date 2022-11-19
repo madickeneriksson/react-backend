@@ -1,0 +1,14 @@
+:root {
+--color-theme: #FF7373;
+--color-gray: #bbbbbb;
+--color-light-gray: #70707066; 
+--color-darkgray: #616365;
+--color-dark: #222529;
+--color-shadow: rgba(35, 38, 42, 0.08);
+--color-gradient-dark: #E6E6E6; 
+--color-gradient-light: #F5F5F5; 
+--color-white: #FFFFFF;
+--color-extra-light-gray: #F8F8F8;
+--color-background: #EAEAEA;
+
+--max-width:1680px;}

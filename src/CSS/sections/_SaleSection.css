@@ -1,0 +1,36 @@
+.__sale .sale-info button {
+    display: none;
+}
+.__sale {
+    background-color: #707070;
+    height: 330px;
+    max-width: 1100px;
+    margin-bottom: 40px;
+}
+.__sale .sale-info {
+    padding: 50px;
+    display: block;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+   
+}
+.__sale .sale-info h1 {
+    margin:20px;
+    font-size: 45px;
+    font-weight: 700;
+    color: var(--color-white);
+    
+}
+.__sale .sale-info h2 {
+    margin:20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+@media (min-width: 1200px) {
+.__sale .sale-info button {
+    display: inline;
+} 
+}

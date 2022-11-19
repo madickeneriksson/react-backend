@@ -1,0 +1,86 @@
+.__winter .left-img {
+    display: none;
+}
+.__winter .right-img {
+    display: none;
+}
+.__winter h1 {
+   display: none;
+}
+.__winter p {
+    display: none;
+}
+
+.winter__btn-theme {
+    display: none;
+}
+
+@media (min-width: 1200px) {  
+.__winter  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    .__winter .right-img {
+        display: block;
+        width: auto;
+    }
+    .__winter .left-img {
+        display: block;
+        width: auto;
+    }
+ 
+    .__winter h1 {
+        display: block;
+        margin-left: 50px;
+        position: absolute;
+        font-size:45px; 
+        font-weight: 800; 
+    }
+    .__winter p {
+        display: block;
+        margin-top: 200px;
+        margin-left: 50px;
+        position: absolute;
+        font-size: 20px;
+    }
+
+    .winter__btn-theme {
+        display: block;
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 400px;
+        text-align: center;
+        background-color: #000000;
+        color: var(--color-white);
+        padding: 25px 50px;
+        transition: all 0.2s ease-in-out;
+        border: none;
+    }
+    .winter__btn-theme:hover {
+        color: var(--color-white);
+        background-color: var(--color-theme);
+        text-decoration: none;
+    }
+    .winter__btn-theme .__btn-theme-left,
+    .winter__btn-theme .__btn-theme-right {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+    }
+    .winter__btn-theme .__btn-theme-left {
+        top:10px;
+        left:10px;
+        border-left: 1px solid var(--color-white);
+        border-top: 1px solid var(--color-white);
+    }
+    .winter__btn-theme .__btn-theme-right {
+        bottom:10px;
+        right:10px;
+        border-right: 1px solid var(--color-white);
+        border-bottom: 1px solid var(--color-white);
+    }
+
+}
+
+   

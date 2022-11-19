@@ -1,0 +1,81 @@
+.card {
+    border:none;
+    margin-left: auto;
+    margin-right: auto;
+}
+        .card .card-img {
+            display: grid;
+            background-color: var(--color-gradient-light);
+            position: relative;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .card .card-body {
+            text-align: center;
+            align-items: center;
+        }
+            .card .card-body .card-category {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--color-darkgray);
+            }
+            .card .card-body .card-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .card .card-body .card-rating {
+                color: var(--color-theme);
+            }
+            .card .card-body .card-price {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+    .card .card-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+    }
+        .card .card-menu .menu-link {
+            background-color: var(--color-white);
+            color:var(--color-dark);
+            width: 36px;
+            height:36px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 6px 4px var(--color-shadow);
+            position: relative;
+            transition: all 0.2s ease-in-out;
+            border:none;
+            outline: none;
+    
+        }
+            .card .card-menu .menu-link:hover {
+                color: var(--color-white);
+                background-color: var(--color-dark);
+                text-decoration: none;
+                transition: all 0.2s ease-in-out;
+            }
+    .card:hover .card-menu {
+        display: flex;
+    }
+    .card .btn-card-theme {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+    }
+    .card:hover .btn-card-theme {
+        display:flex;
+    }

@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
-}
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* cores */
+@import "./CSS/cores/_variables.css";
+@import "./CSS/cores/_Colors.css";
+@import "./CSS/cores/_base.css";
+@import "./CSS/cores/_buttons.css";
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* Sections */
+@import "./CSS/sections/_MainMenuSection.css";
+@import "./CSS/sections/_ShowcaseSection.css";
+@import "./CSS/sections/_BreadcrumbSection.css";
+@import "./CSS/sections/_MapSection.css";
+@import "./CSS/sections/_ContactFormSection.css";
+@import "./CSS/sections/_ProductGridSection";
+@import "./CSS/sections/_FlashsaleSection.css";
+@import "./CSS/sections/_ExtraPriceSection.css";
+@import "./CSS/sections/_TopPickersSection.css";
+@import "./CSS/sections/_InfoSection.css";
+@import "./CSS/sections/_FooterSection.css";
+@import "./CSS/sections/_WinterSection.css";
+@import "./CSS/sections/_SpecialSection.css";
+@import "./CSS/sections/_SaleSection.css";
+@import "./CSS/components/_ShoppingCart.css";
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

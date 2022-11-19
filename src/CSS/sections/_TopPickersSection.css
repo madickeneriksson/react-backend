@@ -1,0 +1,21 @@
+.__banners {
+    display: block;
+   
+}
+.__banners img {
+    max-width: 350px;
+}
+@media (min-width:820px) {
+    .__banners {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+}
+@media (min-width: 1200px) { 
+
+.__banners img {
+    max-width: 100%;
+}
+}
