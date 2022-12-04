@@ -1,76 +1,66 @@
 import React, { useState } from 'react'
-import { submitData, validate } from '../script/validation'
+import AlertNotification from '../components/AlertNotification'
+import { validateEmail, validateText } from '../utilities/validation'
 
-export interface IForm {
-  id?: string,
-  comments?: string,
-  name?: string,
-  email?:string
-}
-export interface IErrors {
-  comments:string |null,
-  name: string |null,
-  email: string |null,
+interface ContactFormSectionDataType {
+  name: string
+  email: string
+  comments: string
 }
 
-const ContactFormSection: React.FC <IForm> = () => {
-  let currentPage = "Contact Us"
-  document.title = `${currentPage} || Fixxo` 
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [comments, setComments] = useState('')
-  const [errors, setErrors] = useState<IErrors>()
-  const [submitted, setSubmitted] = useState(false)
-  const [failedSubmit, setFailedSubmit] = useState(false)
+const ContactFormSection: React.FC = () => {
+  const DEFAULT_VALUES: ContactFormSectionDataType = {name: '', email: '', comments: ''}
+  const [formData, setFormData] = useState<ContactFormSectionDataType>(DEFAULT_VALUES)
+  const [errors, setErrors] = useState<ContactFormSectionDataType>(DEFAULT_VALUES)
+  const [submitted, setSubmitted] = useState<boolean>(false)
+  const [failedSubmit, setFailedSubmit] = useState<boolean>(false)
 
- 
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {id, value} = e.target
-    switch(id) {
-      case 'name':
-        setName(value)
-        break
-      case 'email':
-        setEmail(value)
-        break
-      case 'comments':
-        setComments(value)
-        break
-    }
+    setFormData({...formData, [id]: value})
 
-    setErrors(validate(e,null))
+    if (id === 'name')
+    setErrors({...errors, [id]: validateText(id, value)})
+
+    if (id === 'email')
+    setErrors({...errors, [id]: validateEmail(id, value)})
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const {id, value} = e.target
+
+    if (id === 'comments')
+    setErrors({...errors, [id]: validateText(id, value)}) 
+  }
+ 
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFailedSubmit(false)
     setSubmitted(false)
+    setFailedSubmit(false)
 
-    setErrors(validate(e, {name, email, comments}))
-  
-    if (errors!.name === null && errors!.email === null && errors!.comments === null) {
+    if (formData.name !== '' && formData.email !== '' && formData.comments !== '')
+    if (errors.name === '' && errors.email === '' && errors.comments === '') {
 
-        let json = JSON.stringify({ name, email, comments})
-      
-        setName('')
-        setEmail('')
-        setComments('')
-        setErrors({name: null, email: null, comments: null})
+      const res = await fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
+        method: 'post',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
 
-        if (await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
-            setSubmitted(true)
-            setFailedSubmit(false)
-        } else {
-            setSubmitted(false)
-            setFailedSubmit(true)
-        }
-
-    } else {
-     setSubmitted(false)
+      if (res.status === 200) {
+        setSubmitted(true)
+        setFormData (DEFAULT_VALUES)
+      } else {
+        setSubmitted(false)
+        setFailedSubmit(true)
+      }
     }
   }
+
 
 
 
@@ -78,33 +68,22 @@ const ContactFormSection: React.FC <IForm> = () => {
     <section className="contact-form mt-5">
       <div className="container">
         
-        {
-          submitted ? (
-          <div className="alert alert-success text-center mb-5" role="alert">
-            <h3>Thank you for your comments</h3> 
-            <p>We will contact you as soon as possible.</p>
-            </div>  ) : (<></>)
-        }
-          { 
-          failedSubmit ? (
-          <div className="alert alert-danger text-center mb-5" role="alert">
-            <h3>Something went wrong</h3> 
-            <p>We couldn't submit your comment right now.</p>
-            </div>  ) : (<></>)
-        } 
+        { submitted ? (<AlertNotification alertType="sucess" title="Thank you for your comment." text="We will contact you as soon as possible." />) : (<></>)}
+        { failedSubmit? (<AlertNotification alertType="danger" title="Something went wrong." text="We couldn't submit your comment right now." />) : (<></>)}
+         
         
         <h2>Come in Contact with Us</h2>
         <form onSubmit={handleSubmit} noValidate>
           <div>
-            <input id="name" className={(errors.name ? 'error': '')} value={name} onChange={handleChange} type="text" placeholder="Your Name" />
+            <input id="name" className={(errors.name ? 'error': '')} value={formData.name} onChange={(e) => handleChange(e)} type="text" placeholder="Your Name" />
             <div className="errorMessage">{errors.name}</div>
           </div>
           <div>
-            <input id="email" className={(errors.email ? 'error': '')} value={email} onChange={handleChange} type="email" placeholder="Your Mail" />
+            <input id="email" className={(errors.email ? 'error': '')} value={formData.email} onChange={(e) => handleChange(e)} type="email" placeholder="Your Mail" />
             <div className="errorMessage">{errors.email}</div>
           </div>
           <div className="textarea">
-            <textarea id="comments" className={(errors.comments ? 'error': '')} style={(errors.comments ? {border: '1px solid #FF7373'}: {} )} value={comments} onChange={handleChange} placeholder="Comments"></textarea>
+            <textarea id="comments" className={(errors.comments ? 'error': '')} style={(errors.comments ? {border: '1px solid #FF7373'}: {} )} value={formData.comments} onChange={(e) => handleTextAreaChange(e)} placeholder="Comments"></textarea>
             <div className="errorMessage">{errors.comments}</div>
           </div>
           
@@ -117,6 +96,6 @@ const ContactFormSection: React.FC <IForm> = () => {
       </div>
     </section>
   )
-}
 
-export default ContactForm
+  }
+export default ContactFormSection

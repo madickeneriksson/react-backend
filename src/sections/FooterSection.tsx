@@ -1,9 +1,6 @@
 import React from 'react'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 
-interface FooterSectionType {
-  link: string
-}
 
 const FooterSection: React.FC = () => {
   return (

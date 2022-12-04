@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react'
 import ProductCard from '../components/ProductCard'
-import { FlashsaleProductsContext } from '../context/ProductContexts'
+import {  ProductContextType, useProductContext  } from '../context/ProductContexts'
 import { ProductItem } from '../models/productModel'
 
 interface ProductGridSectionType {

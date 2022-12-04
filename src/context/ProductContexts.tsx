@@ -11,7 +11,7 @@ export interface ProductContextType {
   products: ProductItem[]
   featured: ProductItem[]
   flashsale: ProductItem[]
-  get: (articleNumber:string) => void
+  get: (articleNumber?:string) => void
   getProducts: (take?:number) => void
   getFeatured: (take?:number) => void
   getFlashsale: (take?:number) => void
@@ -31,10 +31,12 @@ export const useProductContext = () => { return useContext(ProductContext)}
   const [flashsale, setFlashsale] = useState<ProductItem[]>([])
     
 
-    const get = async (articleNumber:string) => {
+    const get = async (articleNumber?:string) => {
+      if (articleNumber !== undefined) {
     const res = await fetch(baseUrl + `/${articleNumber}`)
         setProduct(await res.json())
       }
+    }
   
       const getProducts= async (take:number = 0) => {
         let url = baseUrl

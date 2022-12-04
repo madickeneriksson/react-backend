@@ -1,9 +1,5 @@
 import React from 'react'
 
-interface SaleSectionType {
-  button: any
-  link: string
-}
 
 const SaleSection: React.FC = () => {
   return (
@@ -11,7 +7,7 @@ const SaleSection: React.FC = () => {
       <div className="sale-info">
         <h1>Up to 70% off*</h1>
         <h2>Women's, Men's & Kids' Winter Fashion</h2>
-        <button className="__btn-theme-white" href="#">
+        <button className="__btn-theme-white">
             <span className="__btn-theme-left-white"></span>
             <span className="__btn-theme-right-white"></span>
            FLASE SALE

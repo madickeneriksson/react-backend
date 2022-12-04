@@ -3,7 +3,7 @@ import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 
 const NotFoundView: React.FC = () => {
-  window.top.document.title = 'Page Not Found.'
+document.title = 'Page Not Found.'
   
   return (
     <>

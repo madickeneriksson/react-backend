@@ -1,8 +1,15 @@
 import React from 'react'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import { ShoppingCartContextType, useShoppingCartContext } from '../context/ShoppingCartContext'
+import { CartItem } from '../models/ShoppingCartModel'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ShoppingCartItem = ({item}) => {
-    const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart
+interface ShoppingCartItemType {
+    item: CartItem
+}
+
+const ShoppingCartItem: React.FC<ShoppingCartItemType> = ({item}) => {
+    const { incrementQuantity, decrementQuantity, remove } = useShoppingCartContext () as ShoppingCartContextType
+
   return (
     <div className="shoppingcart-item">
         <div className="item-img">
@@ -18,8 +25,8 @@ const ShoppingCartItem = ({item}) => {
             </div>
         </div>
         <div className="item-price">
-        <div>{item.product.price  * item.quantity}</div>
-        <button onClick={() => removeItem(item.articleNumber)}><i class="fa-regular fa-trash"></i></button>
+        <div>{currencyFormatter (item.product.price  * item.quantity)}</div>
+        <button onClick={() => remove(item.articleNumber)}><i className="fa-regular fa-trash"></i></button>
         </div>
     </div>
   )

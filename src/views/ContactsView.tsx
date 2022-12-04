@@ -6,8 +6,8 @@ import MainMenuSection from '../sections/MainMenuSection'
 import MapSection from '../sections/MapSection'
 
 const ContactsView: React.FC = () => {
-
-  window.top.document.title = 'Contacts - Fixxo.'
+  
+  document.title = 'Contacts - Fixxo.'
   
   return (
     <>

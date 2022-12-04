@@ -3,29 +3,26 @@ import { useParams } from 'react-router-dom'
 import MainMenuSection from '../sections/MainMenuSection'
 import BreadcrumbSection from '../sections/BreadcrumbSection'
 import ProductDetails from '../sections/ProductDetails'
+import { ProductContextType, useProductContext } from '../context/ProductContexts'
 
-const ProductsDetailsView = () => {
-    const {id} = useParams()
-    const [product, setProduct] = useState({})
+const ProductsDetailsView: React.FC = () => {
+    const {id} = useParams<string>()
+    const ProductContexts = useProductContext() as ProductContextType
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
-            setProduct(await result.json())
-        }
-        fetchData()
+        ProductContexts.get(id)
     }, [])
 
-    window.top.document.title = ' Product Details - Fixxo.'
+    document.title = ' Product Details - Fixxo.'
 
     return (
     <>
         <MainMenuSection />
-        <BreadcrumbSection currentPage="Product Details" />
+        <BreadcrumbSection currentPage={ProductContexts.product.name} />
         <div className="container d-flex justify-content-center align-items-center" style= { { height: "500px" } }>
       <h1>Product Details</h1>
       </div>
-         <ProductDetails item={product} /> 
+         <ProductDetails item={ProductContexts.product} /> 
     </>
   )
 }

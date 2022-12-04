@@ -1,14 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import { ShoppingCartContextType, useShoppingCartContext } from '../context/ShoppingCartContext'
 import { ProductItem } from '../models/productModel'
+
 
 interface ProductCardType {
     item: ProductItem
 }
 
 const ProductCard: React.FC<ProductCardType> = ({item}) => {
-    const { incrementQuantity } = useShoppingCart()
+    const { incrementQuantity } = useShoppingCartContext () as ShoppingCartContextType
  
 
     return (
@@ -19,7 +20,10 @@ const ProductCard: React.FC<ProductCardType> = ({item}) => {
                     <div className="card-menu">
                         <button className="menu-link"><i className="fa-regular fa-heart"></i></button>
                         <button className="menu-link"><i className="fa-regular fa-code-compare"></i></button>
-                        <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className="menu-link"><i className="fa-regular fa-bag-shopping"></i></button>
+                        <button onClick={() => incrementQuantity({
+                            articleNumber: item.articleNumber, product: item,
+                            quantity: 0
+                        })} className="menu-link"><i className="fa-regular fa-bag-shopping"></i></button>
                     </div>
                     <NavLink to={`/products/${item.articleNumber}`} className="__btn-theme btn-card-theme">
                         <span className="__btn-theme-left"></span>  

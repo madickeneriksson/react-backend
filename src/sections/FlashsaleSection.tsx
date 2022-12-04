@@ -1,25 +1,24 @@
 
 import React, { useContext } from 'react'
 import ProductCard from '../components/ProductCard'
-import { FlashsaleProductsContext } from '../context/ProductContexts'
+import { ProductContextType, useProductContext } from '../context/ProductContexts'
 import { ProductItem } from '../models/productModel'
 
 interface FlashsaleSectionType {
   title: string
   items: ProductItem[]
-  link: string
 }
 
 
 const FlashsaleSection:React.FC<FlashsaleSectionType> = ({title, items =[]}) => {
-  // const products = useContext(FlashsaleProductsContext)
+
 
   return (
     <section className="__flashsales container">
     <div className="__flashsales-box">
         <div className="__flashsales-body">
         <h1 className="__flashsales-title">2 FOR USD $29</h1>
-        <button className="__btn-theme-white" href="#">
+        <button className="__btn-theme-white">
             <span className="__btn-theme-left-white"></span>
             <span className="__btn-theme-right-white"></span>
            FLASE SALE

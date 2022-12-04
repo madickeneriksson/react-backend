@@ -1,17 +1,16 @@
 import React, { useContext } from 'react'
 import ProductCard from '../components/ProductCard'
-import { FlashsaleProductsContext } from '../context/ProductContexts'
+import {  ProductContextType, useProductContext  } from '../context/ProductContexts'
 import { ProductItem } from '../models/productModel'
 
 interface ExtraPriceSectionType {
   title: string
   items: ProductItem[]
-  link: string
 }
 
 
 const ExtraPriceSection: React.FC<ExtraPriceSectionType>  = ({title, items =[]}) => {
-  const products = useContext(FlashsaleProductsContext)
+
 
   return (
     <div className="__flashsales container">
@@ -29,7 +28,7 @@ const ExtraPriceSection: React.FC<ExtraPriceSectionType>  = ({title, items =[]})
     <div className="__flashsales-box">
         <div className="__flashsales-body">
         <h1 className="__flashsales-title">2 FOR USD $29</h1>
-        <button className="__btn-theme-white" href="#">
+        <button className="__btn-theme-white">
             <span className="__btn-theme-left-white"></span>
             <span className="__btn-theme-right-white"></span>
            FLASE SALE
@@ -38,6 +37,7 @@ const ExtraPriceSection: React.FC<ExtraPriceSectionType>  = ({title, items =[]})
     </div>
 
 </div>
+
  
   )
 }
