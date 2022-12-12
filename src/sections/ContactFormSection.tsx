@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import AlertNotification from '../components/AlertNotification'
+import UserContext, { IUserContext } from '../context/UserContext'
 import { validateEmail, validateText } from '../utilities/validation'
 
 interface ContactFormSectionDataType {
@@ -10,6 +11,7 @@ interface ContactFormSectionDataType {
 
 
 const ContactFormSection: React.FC = () => {
+
   const DEFAULT_VALUES: ContactFormSectionDataType = {name: '', email: '', comments: ''}
   const [formData, setFormData] = useState<ContactFormSectionDataType>(DEFAULT_VALUES)
   const [errors, setErrors] = useState<ContactFormSectionDataType>(DEFAULT_VALUES)
@@ -70,10 +72,11 @@ const ContactFormSection: React.FC = () => {
         
         { submitted ? (<AlertNotification alertType="sucess" title="Thank you for your comment." text="We will contact you as soon as possible." />) : (<></>)}
         { failedSubmit? (<AlertNotification alertType="danger" title="Something went wrong." text="We couldn't submit your comment right now." />) : (<></>)}
-         
-        
+{/*          
+         {create} istället för handlesumbit?  */}
+
         <h2>Come in Contact with Us</h2>
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} noValidate> 
           <div>
             <input id="name" className={(errors.name ? 'error': '')} value={formData.name} onChange={(e) => handleChange(e)} type="text" placeholder="Your Name" />
             <div className="errorMessage">{errors.name}</div>

@@ -1,18 +1,12 @@
 export interface User {
     id: number
-    firstname: string
-    lastname: string
+    firstName: string
+    lastName: string
     email: string
 }
-
-export interface UserSignUp {
-    firstname: string
-    lastname: string
-    email: string
-    password: string
-}
-
-export interface UserSignIn {
+export interface UserRequest {
+    firstName: string
+    lastName: string
     email: string
     password: string
 }

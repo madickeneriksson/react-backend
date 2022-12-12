@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductItem } from '../models/productModel'
+import { ProductItem } from '../models/productModell'
 
 
 

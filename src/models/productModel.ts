@@ -1,7 +1,7 @@
-export interface ProductItem {
-    articleNumber: string
-    name: string
-    category: string
+export interface Product {
+    articleNumber: string,
+    name: string,
+    description?: string,
     price: number
-    imageName: string
-  }
+
+}
