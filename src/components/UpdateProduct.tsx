@@ -4,9 +4,6 @@ import { IProductContext, productContext } from '../context/CreateProductContext
 const UpdateProduct = () => {
     const {product, get, setProduct, update} = React.useContext(productContext) as IProductContext
 
-//     useEffect(() => {
-//         get(articleNumber)
-//  }, [get, articleNumber])
     return (
         <form onSubmit={update} className="d-grid mb-5">
             <input type="hidden" value={product.articleNumber} />
