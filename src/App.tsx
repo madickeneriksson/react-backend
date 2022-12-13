@@ -12,6 +12,7 @@ import ShoppingCartView from './views/ShoppingCartView'
 import NotFoundView from './views/NotFoundView';
 import  ProductProvider  from './context/ProductContexts'
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
+import CreateProductsWiew from './views/CreateProductsWiew';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/" element={<HomeView  />} />
       <Route path="/contacts" element={<ContactsView />} />
       <Route path="/products" element={<ProductsView   />} />
+      <Route path="/Admin" element={<CreateProductsWiew  />} />
       <Route path="/products/:name" element={<ProductDetailsView />} />
       <Route path="/categories" element={<CategoriesView />} />
       <Route path="/search" element={<SearchView />} />

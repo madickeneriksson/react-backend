@@ -1,31 +1,23 @@
-import CreateProductContext, { IProductContext, productContext } from '../context/CreateProductContext';
-import { useEffect } from 'react';
+import React from 'react'
+import  { IProductContext, productContext } from '../context/CreateProductContext';
 
 
 
-interface Props {
-  productList: string
-  setProductList: React.Dispatch<React.SetStateAction<string>>
-  handleSubmit: (event: React.FormEvent) => void 
-}
+const CreateProducts = () => {
+  const { productRequest, setProductRequest, create} = React.useContext(productContext) as IProductContext
 
- const CreateProducts:React.FC<Props> = ({productList, setProductList, handleSubmit}) => {
-
+  
 
   return (
-
-
-      <form onSubmit={handleSubmit} className="d-grid mb-5">
-        <input type="hidden" value={productList} />
-        <input value={productList} onChange={(e) => setProductList(e.target.value)} type="text" className="form-controlpy-2 mb-3" placeholder="Enter Products" />
-        <input value={productList} onChange={(e) => setProductList(e.target.value)} type="text" className="form-controlpy-2 mb-3" placeholder="Enter Products" />
-        <input value={productList} onChange={(e) => setProductList(e.target.value)} type="text" className="form-controlpy-2 mb-3" placeholder="Enter Products" />
-        <input value={productList} onChange={(e) => setProductList(e.target.value)} type="text" className="form-controlpy-2 mb-3" placeholder="Enter Products" />
-        <input value={productList} onChange={(e) => setProductList(e.target.value)} type="text" className="form-controlpy-2 mb-3" placeholder="Enter Products" />
-        <button type="submit" className="btn btn-success"></button>
-        
-      </form>
-    )
-  }
+    <form onSubmit={create} className="d-grid mb-5">
+      <input value={productRequest.name} onChange={(e) => setProductRequest({...productRequest, name: e.target.value})}type="text" className="form-controlpy-2 mb-3" placeholder="Enter name" />
+      <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({...productRequest, articleNumber: e.target.value})} type="text" className="form-controlpy-2 mb-3" placeholder="Enter articlenumber" />
+      <input value={productRequest.category} onChange={(e) => setProductRequest({...productRequest, category: e.target.value})} type="text" className="form-controlpy-2 mb-3" placeholder="Enter category" />
+      <input value={productRequest.price} onChange={(e) => setProductRequest({...productRequest, price: e.target.valueAsNumber})}type="number" className="form-controlpy-2 mb-3" placeholder="Enter price" />
+      <input value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-controlpy-2 mb-3" placeholder="Enter img url" />
+      <button type="submit" className="btn btn-success">Create Product</button>
+    </form>
+  )
+}
 
 export default CreateProducts
