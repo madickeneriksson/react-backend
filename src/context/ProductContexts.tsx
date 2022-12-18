@@ -33,7 +33,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 
     const get = async (articleNumber?:string) => {
       if (articleNumber !== undefined) {
-    const res = await fetch(`${baseUrl}/details/${articleNumber}`)
+    const res = await fetch(`${baseUrl}/product/details/${articleNumber}`)
         setProduct(await res.json())
       }
     }
