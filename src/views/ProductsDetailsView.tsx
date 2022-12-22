@@ -7,10 +7,10 @@ import { ProductContextType, useProductContext } from '../context/ProductContext
 
 const ProductsDetailsView: React.FC = () => {
     const {id} = useParams<string>()
-    const ProductContexts = useProductContext() as ProductContextType
+    const productContexts = useProductContext() as ProductContextType
 
     useEffect(() => {
-        ProductContexts.get(id)
+        productContexts.get(id)
     }, [])
 
     document.title = ' Product Details - Fixxo.'
@@ -18,11 +18,11 @@ const ProductsDetailsView: React.FC = () => {
     return (
     <>
         <MainMenuSection />
-        <BreadcrumbSection currentPage={ProductContexts.product.name} />
+        <BreadcrumbSection currentPage={productContexts.product.name} />
         <div className="container d-flex justify-content-center align-items-center" style= { { height: "500px" } }>
       <h1>Product Details</h1>
       </div>
-         <ProductDetails item={ProductContexts.product} /> 
+         <ProductDetails item={productContexts.product} /> 
     </>
   )
 }

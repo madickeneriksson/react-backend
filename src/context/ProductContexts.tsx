@@ -11,10 +11,12 @@ export interface ProductContextType {
   products: ProductItem[]
   featured: ProductItem[]
   flashsale: ProductItem[]
+  flashsaletwo: ProductItem[]
   get: (articleNumber?:string) => void
   getProducts: () => void
   getFeatured: (take?:number) => void
   getFlashsale: (take?:number) => void
+  getFlashsaletwo: (take?:number) => void
 }
 
 export const ProductContext = createContext<ProductContextType | null>(null)
@@ -29,6 +31,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
   const [products, setProducts] = useState<ProductItem[]>([])
   const [featured, setFeatured] = useState<ProductItem[]>([])
   const [flashsale, setFlashsale] = useState<ProductItem[]>([])
+  const [flashsaletwo, setFlashsaletwo] = useState<ProductItem[]>([])
     
 
     const get = async (articleNumber?:string) => {
@@ -59,8 +62,16 @@ export const useProductContext = () => { return useContext(ProductContext)}
         const res = await fetch(url)
         setFlashsale(await res.json())
       }
+      const getFlashsaletwo = async (take:number = 0) => {
+        let url =  `${baseUrl}/flashsaletwo`
+        if (take !==0)
+          url += `/${take}`
+
+        const res = await fetch(url)
+        setFlashsaletwo(await res.json())
+      }
    
-    return <ProductContext.Provider value={{product, products, featured,flashsale, get, getProducts, getFeatured, getFlashsale }}>
+    return <ProductContext.Provider value={{product, products, featured,flashsale, get, getProducts, getFeatured, getFlashsale, flashsaletwo, getFlashsaletwo }}>
       {children} 
     </ProductContext.Provider>
     }

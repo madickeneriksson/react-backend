@@ -15,7 +15,7 @@ const UserList = () => {
     <>
     <h3 className="display-6 mb-4">List of users</h3>
     {
-        product.map((Products:Product) => (<div key={product.articleNumber} className="mb-3">{product.name} {product.category}</div>))
+        // product.map((Products:Product) => (<div key={product.articleNumber} className="mb-3">{product.name} {product.category}</div>))
     }
     </>
   )

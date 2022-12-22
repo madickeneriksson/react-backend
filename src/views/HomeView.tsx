@@ -15,11 +15,12 @@ import SaleSection from '../sections/SaleSection'
 
 
 const HomeView: React.FC = () => {
-  const {featured, getFeatured, flashsale, getFlashsale} = useProductContext() as ProductContextType
+  const {featured, getFeatured, flashsale, getFlashsale, flashsaletwo, getFlashsaletwo} = useProductContext() as ProductContextType
 
   useEffect(() => {
    getFeatured (8)
    getFlashsale (6)
+   getFlashsaletwo (6)
   }, [])
 
   document.title = 'Fixxo.'
@@ -33,7 +34,7 @@ const HomeView: React.FC = () => {
     < TopPickersSection />
     < SpecialSection />
    < FlashsaleSection title="Flashsale" items={flashsale} />
-    < ExtraPriceSection title="Flashsale"  items={flashsale} /> 
+    < ExtraPriceSection title="Flashsale"  items={flashsaletwo} /> 
      < SaleSection />
     < InfoSection  />
     < FooterSection  /> 
