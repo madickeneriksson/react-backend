@@ -1,6 +1,6 @@
 import {useContext, useState} from 'react'
 import { createContext,  } from "react"
-import { ProductItem } from '../models/productModell'
+import { ProductItem } from '../models/ProductItemModel'
 
 interface ProductProviderType {
   children: any

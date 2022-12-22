@@ -19,8 +19,3 @@ export interface ProductRequest {
     price: number
     imageName: string
 }
-// export interface ProductList {
-//     articleNumber: string
-//     text: string
-//     isCompleted: boolean
-// }

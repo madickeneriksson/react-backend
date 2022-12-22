@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import ShoppingCart from "../components/ShoppingCart";
-import { ProductItem } from "../models/productModell";
+import { ProductItem } from "../models/ProductItemModel";
 import { CartItem } from "../models/ShoppingCartModel";
 
 interface ShoppingCartProviderType {

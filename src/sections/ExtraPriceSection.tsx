@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ProductCard from '../components/ProductCard'
-import {  ProductContextType, useProductContext  } from '../context/ProductContexts'
-import { ProductItem } from '../models/productModell'
+import { ProductItem } from '../models/ProductItemModel'
 
 interface ExtraPriceSectionType {
   title: string

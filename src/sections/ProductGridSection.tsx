@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ProductCard from '../components/ProductCard'
-import { ProductItem } from '../models/productModell'
+import { ProductItem } from '../models/ProductItemModel'
 
 interface ProductGridSectionType {
   title: string

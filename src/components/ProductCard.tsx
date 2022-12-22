@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContextType, useShoppingCartContext } from '../context/ShoppingCartContext'
-import { ProductItem } from '../models/productModell'
+import { ProductItem } from '../models/ProductItemModel'
 
 
 interface ProductCardType {

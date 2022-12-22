@@ -1,4 +1,4 @@
-import { ProductItem } from "./productModell"
+import { ProductItem } from "./ProductItemModel"
 
 export interface CartItem {
     articleNumber: string
